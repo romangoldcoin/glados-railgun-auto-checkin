@@ -8,7 +8,7 @@ on:
       - 'README.md'
       - '.gitignore'
   schedule:
-- cron: '30 22 * * *'
+    - cron: '30 22 * * *'
 
 jobs:
   checkin:
@@ -29,13 +29,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install requests
-          pip install pypushdeer
+          pip install pushdeer
 
       - name: 执行签到
         run: python checkin.py
         env:
           PUSHDEER_SENDKEY: ${{ secrets.PUSHDEER_SENDKEY }}
           GLADOS_COOKIES: ${{ secrets.GLADOS_COOKIES }}
+          GLADOS_EXCHANGE_PLAN: 'none'
           GLADOS_VERBOSE: ${{ secrets.GLADOS_VERBOSE }}
 
       - name: 清理旧工作流记录
@@ -59,7 +60,5 @@ jobs:
                   repo: context.repo.repo,
                   run_id: run.id
                 });
-                deleted++;
               }
             }
-            console.log(`已删除 ${deleted} 条旧工作流记录`);
