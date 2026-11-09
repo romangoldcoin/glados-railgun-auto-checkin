@@ -36,7 +36,7 @@ jobs:
         env:
           PUSHDEER_SENDKEY: ${{ secrets.PUSHDEER_SENDKEY }}
           GLADOS_COOKIES: ${{ secrets.GLADOS_COOKIES }}
-          GLADOS_EXCHANGE_PLAN: 'none'
+          GLADOS_EXCHANGE_PLAN: ''
           GLADOS_VERBOSE: ${{ secrets.GLADOS_VERBOSE }}
 
       - name: 清理旧工作流记录
