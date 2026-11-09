@@ -29,7 +29,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install requests
-          pip install pushdeer
 
       - name: 执行签到
         run: python checkin.py
