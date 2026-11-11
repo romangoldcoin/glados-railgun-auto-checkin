@@ -358,6 +358,8 @@ class API:
     @log_method
     def exchange(self, cookies: str, plan: str, required_points: int) -> str:
         """执行兑换"""
+        self._log("info", LogEmoji.INFO, "已跳过自动兑换")
+        return "跳过兑换"
         url = self._get_full_url(self.EXCHANGE_URL)
         response = self._make_request(url, "POST", {"planType": plan}, cookies)
 
